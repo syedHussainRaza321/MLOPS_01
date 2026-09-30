@@ -1,0 +1,20 @@
+# Data & models (tracked by DVC instead)
+data/
+models/
+mlruns/
+
+# YOLO / Ultralytics run outputs and weights
+runs/
+*.pt
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
