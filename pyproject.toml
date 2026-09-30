@@ -1,21 +1,18 @@
 [project]
-name = "mlops-01"
+name = "vehicle-detection-ml-collab"
 version = "0.1.0"
-description = "Add your description here"
+description = "Top-view vehicle detection with YOLOv8 (Assignment01)"
 authors = [
+    { name = "Hussain Raza" },
     { name = "Amir Ali", email = "amiraliasif09@gmail.com" }
 ]
-requires-python = ">=3.12"
+requires-python = ">=3.11"
 dependencies = [
-    "matplotlib>=3.11.2",
-    "opencv-python>=5.0.0.93",
-    "pyyaml>=6.0.3",
     "ultralytics>=8.4.170",
+    "opencv-python>=4.9.0",
+    "matplotlib>=3.11.2",
+    "pyyaml>=6.0.3",
+    "pandas",
+    "seaborn",
+    "pillow",
 ]
-
-[project.scripts]
-mlops-01 = "mlops_01:main"
-
-[build-system]
-requires = ["uv_build>=0.12.19,<0.13.0"]
-build-backend = "uv_build"
