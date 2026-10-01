@@ -10,6 +10,7 @@ or as a separate optional demo script, not the core training pipeline.
 Run from the project root:
     python src/train.py
 """
+
 import os
 from pathlib import Path
 
