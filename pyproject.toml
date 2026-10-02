@@ -15,6 +15,7 @@ dependencies = [
     "pandas",
     "seaborn",
     "pillow",
+    "dvc>=3.67.1",
 ]
 
 [dependency-groups]
