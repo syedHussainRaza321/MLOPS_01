@@ -1,0 +1,6 @@
+outs:
+- md5: 84b2992a62b6fabe357faa4869a16f80.dir
+  size: 38046703
+  nfiles: 1253
+  hash: md5
+  path: Vehicle_Detection_Image_Dataset
