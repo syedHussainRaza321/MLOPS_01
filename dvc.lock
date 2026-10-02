@@ -1,0 +1,79 @@
+schema: '2.0'
+stages:
+  prepare:
+    cmd: python -m src.prepare
+    deps:
+    - path: data/raw/Vehicle_Detection_Image_Dataset
+      hash: md5
+      md5: 87898008b45d846360b9d07c87dd3e12.dir
+      size: 38364970
+      nfiles: 1255
+    - path: src/data_utils.py
+      hash: md5
+      md5: a57b592a4a09381e8f54e2ec89e311c3
+      size: 1848
+    - path: src/prepare.py
+      hash: md5
+      md5: e2124a86dfa5054ff6a502032fecc030
+      size: 868
+    outs:
+    - path: data/processed/dataset_report.json
+      hash: md5
+      md5: 96878844d52b8baafe87f4000703f262
+      size: 221
+  train:
+    cmd: python -m src.modeling.train
+    deps:
+    - path: data/processed/dataset_report.json
+      hash: md5
+      md5: 96878844d52b8baafe87f4000703f262
+      size: 221
+    - path: data/raw/Vehicle_Detection_Image_Dataset
+      hash: md5
+      md5: 87898008b45d846360b9d07c87dd3e12.dir
+      size: 38364970
+      nfiles: 1255
+    - path: src/data_utils.py
+      hash: md5
+      md5: a57b592a4a09381e8f54e2ec89e311c3
+      size: 1848
+    - path: src/modeling/train.py
+      hash: md5
+      md5: 37a447704f066690390599a9ada5fece
+      size: 1706
+    params:
+      params.yaml:
+        model.batch: 8
+        model.dropout: 0.1
+        model.epochs: 1
+        model.imgsz: 640
+        model.lr0: 0.0001
+        model.lrf: 0.1
+        model.optimizer: auto
+        model.patience: 50
+        seed: 42
+    outs:
+    - path: models/best.pt
+      hash: md5
+      md5: fe3e0b2e0e37d6586247ca5c68791bea
+      size: 6243626
+  evaluate:
+    cmd: python -m src.modeling.predict
+    deps:
+    - path: models/best.pt
+      hash: md5
+      md5: fe3e0b2e0e37d6586247ca5c68791bea
+      size: 6243626
+    - path: src/data_utils.py
+      hash: md5
+      md5: a57b592a4a09381e8f54e2ec89e311c3
+      size: 1848
+    - path: src/modeling/predict.py
+      hash: md5
+      md5: a7b8427dca94f11ca1ac571dfa9d275f
+      size: 1249
+    outs:
+    - path: metrics.json
+      hash: md5
+      md5: e32a41803516dbe05c2f958809aea56f
+      size: 152
