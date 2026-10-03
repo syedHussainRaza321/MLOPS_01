@@ -3,5 +3,5 @@
   "recall": 0.2949,
   "mAP50": 0.8132,
   "mAP50_95": 0.5123,
-  "commit_sha": "0a7af8c15893e2657493c26a16438c766b84a8c0"
+  "commit_sha": "042109f8147d805d54eeb5153dd7aa095d51fcd6"
 }
