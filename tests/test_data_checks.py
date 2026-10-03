@@ -42,6 +42,6 @@ def test_label_format_is_valid_yolo():
                 assert class_id == 0, f"Unexpected class_id in {label_file}: {class_id}"
 
                 coords = [float(p) for p in parts[1:]]
-                assert all(
-                    0.0 <= c <= 1.0 for c in coords
-                ), f"Coordinate out of range in {label_file}: {line}"
+                assert all(0.0 <= c <= 1.0 for c in coords), (
+                    f"Coordinate out of range in {label_file}: {line}"
+                )
