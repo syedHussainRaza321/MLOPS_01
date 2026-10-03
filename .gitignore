@@ -1,12 +1,3 @@
-# Data & models (tracked by DVC instead)
-data/
-models/
-mlruns/
-
-# YOLO / Ultralytics run outputs and weights
-runs/
-*.pt
-
 # Python
 __pycache__/
 *.pyc
@@ -18,3 +9,15 @@ __pycache__/
 
 # OS
 .DS_Store
+
+# YOLO / Ultralytics run outputs and weights
+runs/
+*.pt
+
+# MLflow
+mlruns/
+
+# Models: ignore contents, but allow DVC pointer files
+models/*
+!models/.gitignore
+!models/*.dvc
