@@ -62,7 +62,7 @@ def draw_boxes(image_path, label_path):
     if label_path.exists():
         with open(label_path) as f:
             for line in f:
-                cls, xc, yc, w, h = map(float, line.split())
+                _cls, xc, yc, w, h = map(float, line.split())
                 x1, y1, x2, y2 = yolo_to_pixel_box(xc, yc, w, h, img_w, img_h)
                 cv2.rectangle(img, (x1, y1), (x2, y2), (255, 0, 0), 2)
     return img

@@ -25,6 +25,7 @@ dev = [
     "jupytext>=1.19.5",
     "pre-commit>=4.6.2",
     "pytest>=9.1.1",
+    "ruff>=0.16.10",
 ]
 
 [tool.pytest.ini_options]
