@@ -39,30 +39,30 @@ stages:
       size: 1848
     - path: src/modeling/train.py
       hash: md5
-      md5: 37a447704f066690390599a9ada5fece
-      size: 1706
+      md5: 1d407b976e23b0e2d97f3ed269c95dcc
+      size: 1712
     params:
       params.yaml:
         model.batch: 8
         model.dropout: 0.1
         model.epochs: 1
         model.imgsz: 640
-        model.lr0: 0.0001
+        model.lr0: 0.001
         model.lrf: 0.1
-        model.optimizer: auto
+        model.optimizer: AdamW
         model.patience: 50
         seed: 42
     outs:
     - path: models/best.pt
       hash: md5
-      md5: fe3e0b2e0e37d6586247ca5c68791bea
+      md5: 5502bdec1854ca8aa6e693fe7ba375b8
       size: 6243626
   evaluate:
     cmd: python -m src.modeling.predict
     deps:
     - path: models/best.pt
       hash: md5
-      md5: fe3e0b2e0e37d6586247ca5c68791bea
+      md5: 5502bdec1854ca8aa6e693fe7ba375b8
       size: 6243626
     - path: src/data_utils.py
       hash: md5
@@ -70,10 +70,10 @@ stages:
       size: 1848
     - path: src/modeling/predict.py
       hash: md5
-      md5: a7b8427dca94f11ca1ac571dfa9d275f
-      size: 1249
+      md5: aa64be633574036fe43ed641fb1bfde3
+      size: 1253
     outs:
     - path: metrics.json
       hash: md5
-      md5: e32a41803516dbe05c2f958809aea56f
+      md5: 5bd01dec924b316e914ed7dce1f9f7d3
       size: 152
