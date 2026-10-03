@@ -1,0 +1,39 @@
+stages:
+  prepare:
+    cmd: python -m src.prepare
+    deps:
+      - src/prepare.py
+      - src/data_utils.py
+      - data/raw/Vehicle_Detection_Image_Dataset
+    outs:
+      - data/processed/dataset_report.json
+
+  train:
+    cmd: python -m src.modeling.train
+    deps:
+      - src/modeling/train.py
+      - src/data_utils.py
+      - data/raw/Vehicle_Detection_Image_Dataset
+      - data/processed/dataset_report.json
+    params:
+      - seed
+      - model.epochs
+      - model.imgsz
+      - model.batch
+      - model.patience
+      - model.optimizer
+      - model.lr0
+      - model.lrf
+      - model.dropout
+    outs:
+      - models/best.pt
+
+  evaluate:
+    cmd: python -m src.modeling.predict
+    deps:
+      - src/modeling/predict.py
+      - src/data_utils.py
+      - models/best.pt
+    metrics:
+      - metrics.json:
+          cache: false
