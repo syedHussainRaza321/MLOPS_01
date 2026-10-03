@@ -21,3 +21,6 @@ mlruns/
 models/*
 !models/.gitignore
 !models/*.dvc
+
+#Screenshots
+docs/
