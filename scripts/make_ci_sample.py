@@ -32,9 +32,7 @@ def copy_subset(split: str, count: int):
 
 
 def write_data_yaml():
-    content = (
-        "train: train/images\n" "val: valid/images\n" "nc: 1\n" "names: ['Vehicle']\n"
-    )
+    content = "train: train/images\nval: valid/images\nnc: 1\nnames: ['Vehicle']\n"
     (SAMPLE_DIR / "data.yaml").write_text(content)
 
 

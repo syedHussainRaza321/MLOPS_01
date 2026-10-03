@@ -19,7 +19,7 @@ METRICS_PATH = Path("metrics.json")
 def get_commit_sha() -> str:
     try:
         return subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip()
-    except Exception:
+    except (subprocess.CalledProcessError, FileNotFoundError):
         return "unknown"
 
 
